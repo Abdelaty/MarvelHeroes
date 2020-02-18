@@ -2,7 +2,8 @@ package com.example.marvelheroes
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.marvelheroes.ui.main.MainFragment
+import androidx.fragment.app.Fragment
+import com.example.marvelheroes.mainscreen.main.ui.MainFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,4 +16,11 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .commitNow()
+    }
+
 }
