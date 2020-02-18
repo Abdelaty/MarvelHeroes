@@ -27,30 +27,23 @@ class RecyclerAdapter(private val heroesList: ArrayList<Result>) :
 
     override fun getItemCount() = heroesList.size
     class HeroesImagesHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
-        //2
         private var view: View = v
-        private var hereosResponse: Result? = null
+        private var heroesResponse: Result? = null
         fun bindView(marvelApiResponse: Result) {
-            this.hereosResponse = marvelApiResponse
+            this.heroesResponse = marvelApiResponse
             Glide.with(view.context)
-                .load(hereosResponse!!.thumbnail.path + "/detail.jpg")
+                .load(heroesResponse!!.thumbnail.path + "/detail.jpg")
                 .into(view.hero_img_iv)
-            view.hero_name_tv.text = hereosResponse!!.name
+            view.hero_name_tv.text = heroesResponse!!.name
         }
 
-        //3
         init {
             v.setOnClickListener(this)
         }
 
-        //4
         override fun onClick(v: View) {
             Log.d("RecyclerView", "CLICK!")
         }
 
-        companion object {
-            //5
-            private val PHOTO_KEY = "PHOTO"
-        }
     }
-}//1
+}
