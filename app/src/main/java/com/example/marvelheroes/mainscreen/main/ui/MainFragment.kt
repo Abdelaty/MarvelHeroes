@@ -1,4 +1,4 @@
-package com.example.marvelheroes.ui.main
+package com.example.marvelheroes.mainscreen.main.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marvelheroes.R
 import com.example.marvelheroes.data.network.MarvelApiService
 import com.example.marvelheroes.data.network.response.Result
+import com.example.marvelheroes.mainscreen.main.MainViewModel
+import com.example.marvelheroes.mainscreen.main.RecyclerAdapter
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -35,8 +37,12 @@ class MainFragment : Fragment() {
             message.text = marvelResponse.data.results.get(0).name
             result = marvelResponse.data.results as ArrayList<Result>
             linearLayoutManager = LinearLayoutManager(activity)
-            characters_rv.layoutManager = linearLayoutManager
-            var adapter = RecyclerAdapter(result)
+            characters_rv.layoutManager =
+                linearLayoutManager
+            val adapter =
+                activity?.applicationContext?.let {
+                    RecyclerAdapter(result, activity!!)
+                }
             characters_rv.adapter = adapter
         }
         return inflater.inflate(R.layout.main_fragment, container, false)
@@ -45,7 +51,9 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(
+            MainViewModel::class.java
+        )
         // TODO: Use the ViewModel
 
 
