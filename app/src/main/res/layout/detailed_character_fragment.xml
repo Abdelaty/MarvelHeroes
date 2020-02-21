@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_centerInParent="true"
-                        android:text="TextView" />
+                        android:text="Detail" />
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -65,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_centerInParent="true"
-                        android:text="TextView" />
+                        android:text="Wiki" />
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_centerInParent="true"
-                        android:text="TextView" />
+                        android:text="ComicLink" />
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -102,7 +102,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="RELATEDLINKS"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/hero_events_rv" />
@@ -119,7 +119,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="EVENTS"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_stories_rv" />
@@ -136,7 +136,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="STORIES"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_series_rv" />
@@ -192,7 +192,7 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="COMICS"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_descripe" />
@@ -201,7 +201,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="SERIES"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_comics_rv" />
@@ -241,7 +241,7 @@
             app:layout_scrollFlags="scroll|enterAlways">
 
             <ImageView
-                android:id="@+id/backdrop"
+                android:id="@+id/hero_poster_iv"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:fitsSystemWindows="true"
@@ -253,8 +253,9 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
                 android:minHeight="20dp"
+                android:background="@null"
+
                 app:layout_collapseMode="parallax"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 app:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />

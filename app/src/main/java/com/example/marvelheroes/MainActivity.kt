@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, MainFragment.newInstance())
                 .commitNow()
         }
-
+        actionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun loadFragment(fragment: Fragment) {

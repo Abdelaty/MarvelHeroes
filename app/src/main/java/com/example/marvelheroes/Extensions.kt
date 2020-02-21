@@ -12,7 +12,8 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
 }
 
 inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
-    val fragmentTransaction = beginTransaction()
+    val fragmentTransaction =
+        beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
     fragmentTransaction.func()
     fragmentTransaction.commit()
 }

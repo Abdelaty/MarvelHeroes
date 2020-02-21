@@ -7,10 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".mainscreen.main.ui.MainFragment">
 
-    <TextView
+    <ImageView
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/icn_nav_back_white"
+        android:elevation="4dp"
         android:text="MainFragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

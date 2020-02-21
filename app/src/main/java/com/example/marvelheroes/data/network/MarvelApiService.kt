@@ -1,6 +1,5 @@
 package com.example.marvelheroes.data.network
 
-import android.util.Log
 import com.example.marvelheroes.data.network.response.MarvelApiResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
@@ -9,6 +8,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import java.math.BigInteger
 import java.security.MessageDigest
 
@@ -20,9 +20,27 @@ const val BASE_URL = "https://gateway.marvel.com/v1/public/"
 
 interface MarvelApiService {
     @GET("characters")
-    fun getCharactersRespnoseAsync(
-//        @Query("query") location: String,
-//        @Query("units") units: String
+    fun getCharactersResponseAsync(
+    ): Deferred<MarvelApiResponse>
+
+    @GET("characters/{characterId}/comics")
+    fun getComicsCharacterAsync(
+        @Path("characterId") characterId: String
+    ): Deferred<MarvelApiResponse>
+
+    @GET("characters/{characterId}/events")
+    fun getEventsCharacterAsync(
+        @Path("characterId") characterId: String
+    ): Deferred<MarvelApiResponse>
+
+    @GET("characters/{characterId}/stories")
+    fun getStoriesCharacterAsync(
+        @Path("characterId") characterId: String
+    ): Deferred<MarvelApiResponse>
+
+    @GET("characters/{characterId}/series")
+    fun getSeriesCharacterAsync(
+        @Path("characterId") characterId: String
     ): Deferred<MarvelApiResponse>
 
     companion object {
@@ -37,7 +55,6 @@ interface MarvelApiService {
                             .addQueryParameter("apikey", API_PUBLIC_KEY)
                             .addQueryParameter("hash", HASH)
                             .build()
-                    Log.e("URL", url.toString())
                     val request = chain.request().newBuilder().url(url).build()
                     return@Interceptor chain.proceed(request)
 
@@ -49,6 +66,8 @@ interface MarvelApiService {
                 .create(MarvelApiService::class.java)
 
         }
+
+
     }
 
 

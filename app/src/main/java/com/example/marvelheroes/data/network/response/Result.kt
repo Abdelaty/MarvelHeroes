@@ -1,5 +1,6 @@
 package com.example.marvelheroes.data.network.response
 
+import java.io.Serializable
 
 
 data class Result(
@@ -12,6 +13,7 @@ data class Result(
     val resourceURI: String,
     val series: Series,
     val stories: Stories,
+    val title: String,
     val thumbnail: Thumbnail,
     val urls: List<Url>
-)
+) : Serializable
