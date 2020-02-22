@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abdelaty.marvelheroes.R
+import com.abdelaty.marvelheroes.SearchFragment
 import com.abdelaty.marvelheroes.data.network.response.Result
 import com.abdelaty.marvelheroes.detailedscreen.ui.DetailedCharacterFragment
 import com.abdelaty.marvelheroes.inTransaction
@@ -19,8 +20,9 @@ import com.abdelaty.marvelheroes.mainscreen.main.MainViewModel
 import com.abdelaty.marvelheroes.mainscreen.main.OnItemClickListener
 import com.abdelaty.marvelheroes.mainscreen.main.RecyclerAdapter
 import kotlinx.android.synthetic.main.main_fragment.*
+import java.io.Serializable
 
-private lateinit var viewModel: MainViewModel
+lateinit var viewModel: MainViewModel
 private lateinit var linearLayoutManager: LinearLayoutManager
 
 class MainFragment : Fragment(), OnItemClickListener {
@@ -29,6 +31,7 @@ class MainFragment : Fragment(), OnItemClickListener {
         fun newInstance() = MainFragment()
     }
 
+    lateinit var result: Serializable
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,31 +47,47 @@ class MainFragment : Fragment(), OnItemClickListener {
         )
         getHeroes()
 
+        search_iv.setOnClickListener {
+            try {
+                val bundle = Bundle()
+                bundle.putSerializable("hero", result)
+                val searchFragment = SearchFragment()
+                searchFragment.arguments = bundle
+                loadFragment(searchFragment)
+            } catch (e: Exception) {
+                Log.e(javaClass.name, "Didn't get the list yet!")
+            }
+        }
+
     }
 
     private fun getHeroes() {
         viewModel.response.observe(viewLifecycleOwner, Observer { result ->
             prepareRecyclerView(result as ArrayList<Result>)
+            this.result = result
         })
 
     }
 
     private fun prepareRecyclerView(result: ArrayList<Result>) {
         linearLayoutManager = LinearLayoutManager(activity)
-        characters_rv.layoutManager =
-            linearLayoutManager
+        characters_rv.layoutManager = linearLayoutManager
         characters_rv.itemAnimator = DefaultItemAnimator()
-        val adapter =
-            activity?.applicationContext?.let {
-                RecyclerAdapter(result, activity!!, this@MainFragment)
-            }
+        val adapter = activity?.applicationContext?.let {
+            RecyclerAdapter(
+                result,
+                activity!!,
+                this@MainFragment
+            )
+        }
         characters_rv.adapter = adapter
     }
 
     override fun onItemClicked(result: Result) {
-        Log.e("data", result.name)
         val bundle = Bundle()
         bundle.putSerializable("hero", result)
+        bundle.putString("id", result.id.toString())
+
         val detailedCharacterFragment = DetailedCharacterFragment()
         detailedCharacterFragment.arguments = bundle
         loadFragment(detailedCharacterFragment)
@@ -80,4 +99,6 @@ class MainFragment : Fragment(), OnItemClickListener {
 
         }
     }
+
+
 }

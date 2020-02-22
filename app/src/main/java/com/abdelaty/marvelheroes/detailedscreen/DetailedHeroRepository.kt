@@ -1,13 +1,13 @@
 package com.abdelaty.marvelheroes.detailedscreen
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.abdelaty.marvelheroes.data.network.MarvelApiService
 import com.abdelaty.marvelheroes.data.network.response.Result
 import com.bumptech.glide.load.HttpException
 import kotlinx.coroutines.*
 
-class DetailedHeroRepository {
-
+class DetailedHeroRepository(private var heroId: String) {
 
     private var heroes = mutableListOf<Result>()
     private var events = mutableListOf<Result>()
@@ -21,14 +21,14 @@ class DetailedHeroRepository {
 
     val completableJob = Job()
     private val coroutineScope = CoroutineScope(Dispatchers.IO + completableJob)
-    private val id = "1011334"
     private val thisApiCorService by lazy {
         MarvelApiService.invoke()
     }
 
     fun getMutableLiveData(): MutableLiveData<List<Result>> {
+        Log.e("getMutableLiveData", heroId)
         coroutineScope.launch {
-            val comicsRequest = thisApiCorService.getComicsCharacterAsync(id)
+            val comicsRequest = thisApiCorService.getComicsCharacterAsync(heroId)
             withContext(Dispatchers.Main) {
                 try {
                     val response = comicsRequest.await()
@@ -47,7 +47,7 @@ class DetailedHeroRepository {
 
     fun getEventsMutableLiveData(): MutableLiveData<List<Result>> {
         coroutineScope.launch {
-            val eventsRequest = thisApiCorService.getEventsCharacterAsync(id)
+            val eventsRequest = thisApiCorService.getEventsCharacterAsync(heroId)
             withContext(Dispatchers.Main) {
                 try {
                     val response = eventsRequest.await()
@@ -67,7 +67,7 @@ class DetailedHeroRepository {
     fun getSeriesMutableLiveData(): MutableLiveData<List<Result>> {
         coroutineScope.launch {
 
-            val seriesRequest = thisApiCorService.getSeriesCharacterAsync(id)
+            val seriesRequest = thisApiCorService.getSeriesCharacterAsync(heroId)
 
             withContext(Dispatchers.Main) {
                 try {
@@ -88,7 +88,7 @@ class DetailedHeroRepository {
     fun getStoriesMutableLiveData(): MutableLiveData<List<Result>> {
         coroutineScope.launch {
 
-            val storiesRequest = thisApiCorService.getStoriesCharacterAsync(id)
+            val storiesRequest = thisApiCorService.getStoriesCharacterAsync(heroId)
 
             withContext(Dispatchers.Main) {
                 try {

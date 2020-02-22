@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/colorPrimary"
     tools:context=".detailedscreen.ui.DetailedCharacterFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -37,15 +37,17 @@
                 app:layout_constraintVertical_bias="0.48000002">
 
                 <RelativeLayout
+                    android:id="@+id/hero_details_ly"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
 
                     <TextView
-                        android:id="@+id/hero_details_tv"
                         style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:layout_centerInParent="true"
                         android:text="Detail" />
 
@@ -53,17 +55,24 @@
                         android:id="@+id/imageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/hero_details_tv"
+                        android:layout_alignBottom="@+id/hero_details_tv"
                         android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:src="@android:drawable/arrow_down_float" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="-1dp"
+                        android:src="@drawable/ic_right_arrow" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/hero_wiki_ly"
+
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
 
                     <TextView
-                        android:id="@+id/hero_wiki_tv"
                         style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -75,17 +84,22 @@
                         android:id="@+id/imageView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/hero_wiki_tv"
                         android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:src="@android:drawable/arrow_down_float" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-1dp"
+                        android:src="@drawable/ic_right_arrow" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/hero_comic_link_ly"
+
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
 
                     <TextView
-                        android:id="@+id/hero_comic_link_tv"
                         style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -97,9 +111,11 @@
                         android:id="@+id/imageView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/hero_comic_link_tv"
                         android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:src="@android:drawable/arrow_up_float" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-1dp"
+                        android:src="@drawable/ic_right_arrow" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -176,11 +192,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrfvvvvvvvvvvvvvvvvvvvvvvvvvv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:text="X-Ray" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -198,10 +214,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrfvvvvvvvvvvvvvvvvvvvvvvvvvv"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView2"
-                tools:text="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrfvvvvvvvvvvvvvvvvvvvvvvvvvv" />
+                tools:text="X-Ray" />
+
 
             <TextView
                 android:id="@+id/textView5"
@@ -267,14 +283,17 @@
                 android:src="@drawable/common_google_signin_btn_icon_dark"
                 app:layout_collapseMode="parallax" />
 
+
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/invisible_bar"
+                style="@style/ToolbarTheme"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:minHeight="20dp"
                 android:background="@null"
-
+                android:minHeight="20dp"
                 app:layout_collapseMode="parallax"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 app:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 

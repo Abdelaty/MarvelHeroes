@@ -5,11 +5,12 @@ import androidx.lifecycle.ViewModel
 import com.abdelaty.marvelheroes.data.network.response.Result
 import com.abdelaty.marvelheroes.detailedscreen.DetailedHeroRepository
 
-class DetailedCharacterViewModel : ViewModel() {
+class DetailedCharacterViewModel(mExtra: String) : ViewModel() {
+
     /**
      * Live Data Instance
      */
-    private val heroRepository = DetailedHeroRepository()
+    private val heroRepository = DetailedHeroRepository(mExtra)
 
     val response: LiveData<List<Result>> get() = heroRepository.getMutableLiveData()
     val eventsResponse: LiveData<List<Result>> get() = heroRepository.getEventsMutableLiveData()
