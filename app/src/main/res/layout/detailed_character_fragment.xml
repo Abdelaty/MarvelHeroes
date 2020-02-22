@@ -13,11 +13,13 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailed_hero_container_cl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/app_bar_lay"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
             android:padding="10dp"
             app:behavior_overlapTop="52dp"
             app:expandedTitleMarginBottom="70dp">
@@ -32,14 +34,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/textView9"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintVertical_bias="0.48000002">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/hero_details_tv"
+                        style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -60,7 +63,8 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/hero_wiki_tv"
+                        style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -81,7 +85,8 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/hero_comic_link_tv"
+                        style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -100,6 +105,7 @@
 
             <TextView
                 android:id="@+id/textView9"
+                style="@style/RedTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -109,6 +115,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/hero_events_rv"
+                style="@style/WhiteNormalTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
@@ -117,6 +124,7 @@
 
             <TextView
                 android:id="@+id/textView8"
+                style="@style/RedTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -126,6 +134,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/hero_stories_rv"
+                style="@style/WhiteNormalTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
@@ -134,6 +143,7 @@
 
             <TextView
                 android:id="@+id/textView7"
+                style="@style/RedTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -143,6 +153,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/hero_series_rv"
+                style="@style/WhiteNormalTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
@@ -151,6 +162,7 @@
 
             <TextView
                 android:id="@+id/textView"
+                style="@style/RedTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -160,6 +172,7 @@
 
             <TextView
                 android:id="@+id/hero_name"
+                style="@style/WhiteNormalTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -171,6 +184,7 @@
 
             <TextView
                 android:id="@+id/textView2"
+                style="@style/RedTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -180,6 +194,7 @@
 
             <TextView
                 android:id="@+id/hero_descripe"
+                style="@style/WhiteNormalTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -190,6 +205,7 @@
 
             <TextView
                 android:id="@+id/textView5"
+                style="@style/RedTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -199,6 +215,7 @@
 
             <TextView
                 android:id="@+id/textView6"
+                style="@style/RedTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -208,6 +225,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/hero_comics_rv"
+                style="@style/WhiteNormalTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

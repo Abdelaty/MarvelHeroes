@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/marvelHeroesFragment">
+    <fragment
+        android:id="@+id/marvelHeroesFragment"
+        android:name="com.abdelaty.marvelheroes.mainscreen.main.ui.MainFragment"
+        tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/heroDetailsFragment"
+        android:name="com.abdelaty.marvelheroes.detailedscreen.ui.DetailedCharacterFragment"
+        tools:layout="@layout/detailed_character_fragment" />
+
+</navigation>
