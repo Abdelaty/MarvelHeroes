@@ -1,11 +1,14 @@
 package com.abdelaty.marvelheroes.detailedscreen.ui
 
+import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -14,27 +17,27 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.abdelaty.marvelheroes.R
 import com.abdelaty.marvelheroes.data.network.response.Result
-import com.abdelaty.marvelheroes.detailedscreen.HeroDataAdapter
-import com.abdelaty.marvelheroes.detailedscreen.OnItemClickListener
+import com.abdelaty.marvelheroes.detailedscreen.model.HeroDataAdapter
+import com.abdelaty.marvelheroes.detailedscreen.model.OnItemClickListener
 import com.abdelaty.marvelheroes.detailedscreen.viewmodel.DetailedCharacterViewModel
 import com.abdelaty.marvelheroes.detailedscreen.viewmodel.ViewModelFactory
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.detailed_character_fragment.*
+import kotlinx.android.synthetic.main.image_dialog.*
 
 
 private lateinit var linearLayoutManager: LinearLayoutManager
 
 
-class DetailedCharacterFragment : Fragment(), OnItemClickListener {
+class DetailedCharacterFragment : Fragment(),
+    OnItemClickListener {
 
     companion object {
-        fun newInstance() =
-            DetailedCharacterFragment()
+        fun newInstance() = DetailedCharacterFragment()
     }
 
     private lateinit var viewModel: DetailedCharacterViewModel
     lateinit var result: Result
-    lateinit var heroId: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -101,14 +104,37 @@ class DetailedCharacterFragment : Fragment(), OnItemClickListener {
             .into(hero_poster_iv)
     }
 
-    override fun onItemClicked(resourceURI: String) {}
+    override fun onItemClicked(posterUrl: String) {
+        showImageDialog(posterUrl)
+    }
+
+    private fun showImageDialog(posterUrl: String) {
+        val imageDialog = context?.let { Dialog(it) }
+        imageDialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+        imageDialog?.setContentView(R.layout.image_dialog)
+        imageDialog?.show()
+        displayImage(imageDialog, posterUrl)
+    }
+
+    private fun displayImage(dialog: Dialog?, posterUrl: String) {
+        Glide.with(this)
+            .load(posterUrl)
+            .into(dialog?.dialog_image_iv!!)
+        Log.e("posterUtl", posterUrl)
+    }
 
     private fun prepareHeroEventsData(result: List<Result>, recyclerView: RecyclerView) {
         linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
         val adapter =
-            activity?.applicationContext?.let { HeroDataAdapter(result, activity!!, this) }
+            activity?.applicationContext?.let {
+                HeroDataAdapter(
+                    result,
+                    activity!!,
+                    this
+                )
+            }
         recyclerView.adapter = adapter
     }
 }

@@ -6,7 +6,7 @@
     app:startDestination="@id/marvelHeroesFragment">
     <fragment
         android:id="@+id/marvelHeroesFragment"
-        android:name="com.abdelaty.marvelheroes.mainscreen.main.ui.MainFragment"
+        android:name="com.abdelaty.marvelheroes.main.ui.MainFragment"
         tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/action_marvelHeroesFragment_to_heroDetailsFragment"
@@ -21,7 +21,7 @@
         tools:layout="@layout/detailed_character_fragment" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.abdelaty.marvelheroes.SearchFragment"
+        android:name="com.abdelaty.marvelheroes.search.ui.SearchFragment"
         android:label="search_fragment"
         tools:layout="@layout/search_fragment" />
 

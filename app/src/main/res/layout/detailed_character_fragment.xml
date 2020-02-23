@@ -49,19 +49,16 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_centerInParent="true"
-                        android:text="Detail" />
+                        android:text="@string/detail" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/imageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/hero_details_tv"
-                        android:layout_alignBottom="@+id/hero_details_tv"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginBottom="-1dp"
-                        android:src="@drawable/ic_right_arrow" />
+                        android:background="@drawable/ic_right_arrow"
+                        android:contentDescription="@string/more_hero_details" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -76,19 +73,18 @@
                         style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:layout_centerInParent="true"
-                        android:text="Wiki" />
+                        android:text="@string/wiki" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/imageView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/hero_wiki_tv"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="-1dp"
-                        android:src="@drawable/ic_right_arrow" />
+                        android:background="@drawable/ic_right_arrow"
+                        android:contentDescription="@string/hero_wiki_button" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -103,19 +99,19 @@
                         style="@style/WhiteNormalTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:layout_centerInParent="true"
-                        android:text="ComicLink" />
+                        android:text="@string/comiclink" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/imageView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/hero_comic_link_tv"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="-1dp"
-                        android:src="@drawable/ic_right_arrow" />
+
+                        android:background="@drawable/ic_right_arrow"
+                        android:contentDescription="@string/hero_comics_link_button" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -125,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="RELATEDLINKS"
+                android:text="@string/relatedlinks"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/hero_events_rv" />
 
@@ -144,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="EVENTS"
+                android:text="@string/events"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_stories_rv" />
 
@@ -163,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="STORIES"
+                android:text="@string/stories"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_series_rv" />
 
@@ -182,7 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="name"
+                android:text="@string/name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -204,7 +200,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Description"
+                android:text="@string/description"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_name" />
 
@@ -225,7 +221,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="COMICS"
+                android:text="@string/comics"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_descripe" />
 
@@ -235,7 +231,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="SERIES"
+                android:text="@string/series"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/hero_comics_rv" />
 
@@ -280,7 +276,8 @@
                 android:layout_height="200dp"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/common_google_signin_btn_icon_dark"
+                android:contentDescription="@string/hero_full_poster"
+                android:src="@drawable/place_holder"
                 app:layout_collapseMode="parallax" />
 
 

@@ -1,11 +1,11 @@
 package com.abdelaty.marvelheroes.data.network
 
-import com.abdelaty.marvelheroes.data.Constants.Companion.API_PRIVATE_KEY
-import com.abdelaty.marvelheroes.data.Constants.Companion.API_PUBLIC_KEY
-import com.abdelaty.marvelheroes.data.Constants.Companion.BASE_URL
-import com.abdelaty.marvelheroes.data.Constants.Companion.HASH
-import com.abdelaty.marvelheroes.data.Constants.Companion.TIME_STMP
 import com.abdelaty.marvelheroes.data.network.response.MarvelApiResponse
+import com.abdelaty.marvelheroes.utility.Constants.Companion.API_PRIVATE_KEY
+import com.abdelaty.marvelheroes.utility.Constants.Companion.API_PUBLIC_KEY
+import com.abdelaty.marvelheroes.utility.Constants.Companion.BASE_URL
+import com.abdelaty.marvelheroes.utility.Constants.Companion.HASH
+import com.abdelaty.marvelheroes.utility.Constants.Companion.TIME_STMP
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor

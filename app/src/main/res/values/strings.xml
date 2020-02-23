@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Marvel Heroes</string>
+    <string name="hero_poster_description">Hero Main Poster</string>
+    <string name="hero_comics_poster_description">Hero comics poster</string>
+    <string name="more_hero_details">More hero details</string>
+    <string name="hero_wiki_button">Hero Wiki Button</string>
+    <string name="wiki">Wiki</string>
+    <string name="detail">Detail</string>
+    <string name="comiclink">ComicLink</string>
+    <string name="hero_comics_link_button">Hero Comics link button</string>
+    <string name="relatedlinks">RELATEDLINKS</string>
+    <string name="events">EVENTS</string>
+    <string name="stories">STORIES</string>
+    <string name="name">name</string>
+    <string name="description">Description</string>
+    <string name="comics">COMICS</string>
+    <string name="series">SERIES</string>
+    <string name="hero_full_poster">Hero Full Poster</string>
+    <string name="search_button">Search button</string>
+    <string name="marvel_logo">Marvel Logo</string>
+    <string name="hero_name">Hero name</string>
+    <string name="hero_item_small_description">Avengers: The Initiative (2007) #19</string>
+    <string name="full_image_of_the_poster">Full image of the poster</string>
 </resources>
