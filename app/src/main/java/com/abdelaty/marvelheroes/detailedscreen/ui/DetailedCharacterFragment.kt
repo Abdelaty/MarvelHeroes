@@ -98,7 +98,7 @@ class DetailedCharacterFragment : Fragment(),
 
     private fun prepareUi(result: Result) {
         hero_name.text = result.name
-        hero_descripe.text = result.name
+        hero_descripe.text = result.description
         Glide.with(this)
             .load(result.thumbnail.path + "/detail.jpg")
             .into(hero_poster_iv)
