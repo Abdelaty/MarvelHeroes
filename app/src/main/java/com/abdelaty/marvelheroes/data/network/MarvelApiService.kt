@@ -63,7 +63,6 @@ interface MarvelApiService {
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create()).build()
                 .create(MarvelApiService::class.java)
-
         }
 
 
