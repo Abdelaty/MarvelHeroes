@@ -11,6 +11,8 @@ Using Marvel Heroes API, I have created an app to read hero's comics and see det
 - MVVM.
 - Kodein.
 - Glide.
+- Retrofit.
+- Room.
 - JUnit.
 - Espresso Test.
 - Navigation Archticture.
